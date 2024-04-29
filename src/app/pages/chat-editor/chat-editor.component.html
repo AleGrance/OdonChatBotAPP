@@ -1,1 +1,9 @@
-<p>chat-editor works!</p>
+<!-- <p>chat-editor works!</p> -->
+
+<form [formGroup]="chatForm" formDir="ngForm">
+  <textarea name="" id="mensaje" cols="50" rows="3" formControlName="mensaje"></textarea>
+
+  <button type="button" (click)="enviarMensaje()">Enviar</button>
+</form>
+
+
