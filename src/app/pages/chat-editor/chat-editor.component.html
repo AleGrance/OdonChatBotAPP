@@ -1,8 +1,15 @@
 <!-- <p>chat-editor works!</p> -->
 
 <form [formGroup]="chatForm" formDir="ngForm">
-  <textarea name="" id="mensaje" cols="50" rows="3" formControlName="mensaje" (keydown)="enviarMensaje($event)"></textarea>
-  <button type="button" (click)="enviarMensaje($event)">Enviar</button>
+  <div class="row">
+    <textarea
+      name=""
+      id="mensaje"
+      cols="50"
+      rows="3"
+      formControlName="mensaje"
+      (keydown)="enviarMensaje($event)"
+    ></textarea>
+    <button type="button" (click)="enviarMensaje($event)">Enviar</button>
+  </div>
 </form>
-
-

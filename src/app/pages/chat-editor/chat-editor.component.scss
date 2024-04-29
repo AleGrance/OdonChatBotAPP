@@ -1,4 +1,5 @@
 textarea {
+  width: 636px;
   resize: none;
   overflow: hidden;
   box-sizing: border-box;
@@ -6,4 +7,13 @@ textarea {
 
 textarea:focus {
   outline: none; /* Elimina el contorno al hacer foco */
+}
+
+form {
+  padding: 2px;
+}
+
+.row {
+  display: flex;
+  padding: 2px;
 }

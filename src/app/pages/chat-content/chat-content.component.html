@@ -1,7 +1,5 @@
 <!-- <p>chat-content works!</p> -->
 <div class="message-containier" *ngFor="let message of messagesArray">
-  <div class="message-box">
     <h5>{{ message.texto }}</h5>
     <small>{{ message.fecha_hora | date: 'HH:mm'}}</small>
-  </div>
 </div>

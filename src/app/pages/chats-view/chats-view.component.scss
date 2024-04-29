@@ -16,5 +16,15 @@ h3 {
 }
 
 .chat-content {
+  display: block;
+  position: relative;
+  text-align: right;
   height: 400px;
+  overflow: auto;
+}
+
+.message-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

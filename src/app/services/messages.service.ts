@@ -16,7 +16,7 @@ export class MessagesService {
 
   // La funcion que carga el observable
   addMensaje(newMessage: Message) {
-    console.log('Mensaje recibido en messages service: ', newMessage);
+    //console.log('Mensaje recibido en messages service: ', newMessage);
     this.messagesList.push(newMessage);
     this._messages.next(this.messagesList);
   }
