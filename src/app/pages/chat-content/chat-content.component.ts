@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chat } from 'src/app/interfaces/chat';
+import { Message } from 'src/app/interfaces/message';
 import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { MessagesService } from 'src/app/services/messages.service';
   styleUrls: ['./chat-content.component.scss']
 })
 export class ChatContentComponent implements OnInit {
-  public messagesArray: Chat[] = [];
+  public messagesArray: Message[] = [];
 
   constructor(private messagesService: MessagesService) { }
 

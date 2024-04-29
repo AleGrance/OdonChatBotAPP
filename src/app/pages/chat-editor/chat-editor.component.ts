@@ -16,7 +16,7 @@ export class ChatEditorComponent implements OnInit {
     this.chatForm = this.formBuilder.group({
       mensaje: new FormControl('', [
         Validators.required,
-        Validators.minLength(4)
+        Validators.minLength(1)
       ])
     })
   }
@@ -24,23 +24,25 @@ export class ChatEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enviarMensaje() {
-    const newMessage: Message = {
-      texto: this.chatForm.value.mensaje,
-      fecha_hora: new Date(),
-      from_id: 1
+  enviarMensaje(evento: any) {
+    // console.log(evento);
+    if (evento.key == 'Enter' || evento.type == 'click') {
+      evento.preventDefault();
+      const newMessage: Message = {
+        texto: this.chatForm.value.mensaje,
+        fecha_hora: new Date(),
+        from_id: 1
+      }
+
+      if (!this.chatForm.valid) {
+        //alert('Debe completar los campos necesarios');
+        return;
+      }
+
+      this.messagesService.addMensaje(newMessage);
+
+      this.chatForm.reset();
     }
-
-    if (!this.chatForm.valid) {
-      alert('Debe completar los campos necesarios');
-      return;
-    }
-
-    console.log('El mensaje a enviar es: ', newMessage.texto);
-
-    this.messagesService.addMensaje(newMessage);
-
-    this.chatForm.reset();
   }
 
 }

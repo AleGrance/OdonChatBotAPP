@@ -29,10 +29,10 @@ export class ChatsListComponent implements OnInit {
   }
 
 
-  onclickEvent() {
-    let chat: Chat = this.chatForm.value.nombre;
-    console.log('Desde el compnente chat-list: ', chat);
-    this.chatsService.agregarChat(chat);
-  }
+  // onclickEvent() {
+  //   let chat: Chat = this.chatForm.value.nombre;
+  //   console.log('Desde el compnente chat-list: ', chat);
+  //   this.chatsService.agregarChat(chat);
+  // }
 
 }

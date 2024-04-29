@@ -1,4 +1,7 @@
 <!-- <p>chat-content works!</p> -->
-<ul *ngFor="let message of messagesArray">
-  <li>{{ message.texto }}</li>
-</ul>
+<div class="message-containier" *ngFor="let message of messagesArray">
+  <div class="message-box">
+    <h5>{{ message.texto }}</h5>
+    <small>{{ message.fecha_hora | date: 'HH:mm'}}</small>
+  </div>
+</div>
