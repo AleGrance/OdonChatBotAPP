@@ -1,0 +1,42 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  display: flex;
+  gap: 10px;
+  margin-top: 10;
+  max-width: 90%;
+  min-width: 300px;
+  height: 600px;
+  border: 1px solid blue;
+  padding: 5px;
+}
+
+@mixin formato-filas {
+  max-width: 90%;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.info {
+  border: 1px solid orange;
+  width: 30%;
+  height: 550px;
+  padding: 5px;
+}
+
+.chat-row {
+  border: 1px solid green;
+  @include formato-filas();
+}
+
+.chat-view {
+  border: 1px solid pink;
+  min-width: 60%;
+  height: 550px;
+  overflow-y: auto;
+}
