@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ChatsService } from 'src/app/services/chats.service';
+import { Message } from 'src/app/interfaces/message';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-chat-editor',
@@ -11,7 +12,7 @@ export class ChatEditorComponent implements OnInit {
 
   public chatForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private chatsService: ChatsService) {
+  constructor(public formBuilder: FormBuilder, private messagesService: MessagesService) {
     this.chatForm = this.formBuilder.group({
       mensaje: new FormControl('', [
         Validators.required,
@@ -24,17 +25,20 @@ export class ChatEditorComponent implements OnInit {
   }
 
   enviarMensaje() {
-    const newMessage = this.chatForm.value;
+    const newMessage: Message = {
+      texto: this.chatForm.value.mensaje,
+      fecha_hora: new Date(),
+      from_id: 1
+    }
 
     if (!this.chatForm.valid) {
       alert('Debe completar los campos necesarios');
       return;
     }
 
-    // console.log(this.chatForm.valid);
-    console.log('El mensaje a enviar es: ', newMessage.mensaje);
+    console.log('El mensaje a enviar es: ', newMessage.texto);
 
-    this.chatsService.agregarChat(newMessage.mensaje);
+    this.messagesService.addMensaje(newMessage);
 
     this.chatForm.reset();
   }
