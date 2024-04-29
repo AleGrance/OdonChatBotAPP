@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chat } from 'src/app/interfaces/chat';
-import { ChatsService } from 'src/app/services/chats.service';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-chat-content',
@@ -8,14 +8,15 @@ import { ChatsService } from 'src/app/services/chats.service';
   styleUrls: ['./chat-content.component.scss']
 })
 export class ChatContentComponent implements OnInit {
-  public chatsArray: Chat[] = [];
+  public messagesArray: Chat[] = [];
 
-  constructor(private chatsService: ChatsService) { }
+  constructor(private messagesService: MessagesService) { }
 
   ngOnInit(): void {
-    this.chatsService.obtenerChats.subscribe(result => {
-      this.chatsArray = result;
-      console.log('Los mensajes desde el compo chat-content:', result);
+    // Se realiza la suscripcion al observable
+    this.messagesService.getMessages.subscribe(result => {
+      console.log('Estos son los mensajes recibidos, en el componente chat-content: ', result);
+      this.messagesArray = result;
     })
   }
 
